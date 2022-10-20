@@ -1,6 +1,6 @@
 <h1>A Jira Clone build with ReactJS.</h1>
 <h4>Technologies: React Functional component, React-Hook, Redux, Redux Saga, Fomik, Yup, React Router DOM, Ant Design, Axios</h4>
-<h4>Source: https://github.com/vtnam2705/bc29_jira_vothanhnam</h4>
+<h4>Source: https://github.com/vtnam2705/bc29_jira_clone_vothanhnam</h4>
 
 <h2>Jira is an application for managing users and projects. You can create projects, tasks and manage it easily</h2>
 
