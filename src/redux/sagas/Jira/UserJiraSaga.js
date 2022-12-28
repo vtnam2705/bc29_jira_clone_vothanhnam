@@ -31,7 +31,7 @@ function* signinSaga(action) {
         notifiFunction('success', 'Đăng nhập thành công.')
         history.push('/usermanagement');
     } catch ( error ) {
-        notifiFunction('error', error.response.data?.message);
+        notifiFunction('error', error.response.data.message);
     }
 
     yield put({

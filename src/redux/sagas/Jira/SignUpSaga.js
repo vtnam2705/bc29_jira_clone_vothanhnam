@@ -25,7 +25,7 @@ function* signUpUser(action) {
         }
     } catch ( error ) {
         console.log(error.response.data)
-        notifiFunction('error', error.response.data?.message);
+        notifiFunction('error', error.response.data.message);
     }
     yield put({
         type: HIDE_LOADING,
