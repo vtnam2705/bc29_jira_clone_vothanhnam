@@ -49,8 +49,8 @@ function* getAllStatus(action) {
       });
     }
   } catch (error) {
-    console.log(error);
-    console.log(error.response?.data);
+    // console.log(error);
+    // console.log(error.response?.data);
   }
 }
 
@@ -70,8 +70,8 @@ function* getAllPriority(action) {
       });
     }
   } catch (error) {
-    console.log(error);
-    console.log(error.response.data);
+    // console.log(error);
+    // console.log(error.response.data);
   }
 }
 
@@ -91,8 +91,8 @@ function* getAllTaskType(action) {
       });
     }
   } catch (error) {
-    console.log(error);
-    console.log(error.response.data);
+    // console.log(error);
+    // console.log(error.response.data);
   }
 }
 export function* theoDoiGetAllTaskType() {
@@ -111,7 +111,7 @@ function* getUserByProjectId(action) {
       });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     if (error.response?.data.statusCode === STATUS_CODE.NOT_FOUND) {
       yield put({
         type: GET_USER_BY_PROJECT_ID,
@@ -131,7 +131,7 @@ function* createTask(action) {
   yield delay(500);
   try {
     const { data, status } = yield call(() => createTaskService.createTask(action.taskObject));
-    console.log('data', data);
+    // console.log('data', data);
     if (status === STATUS_CODE.SUCCESS) {
       yield put({
         type: HIDE_MODAL,
@@ -146,7 +146,7 @@ function* createTask(action) {
       });
       notifiFunction('success', 'Create task successfully');
     }
-    console.log('data', data);
+    // console.log('data', data);
   } catch (error) {
     notifiFunction('error', error.response.data.content);
   }
@@ -169,8 +169,8 @@ function* getTaskDetail(action) {
       });
     }
   } catch (error) {
-    console.log(error);
-    console.log(error.response.data);
+    // console.log(error);
+    // console.log(error.response.data);
   }
 }
 
@@ -195,8 +195,8 @@ function* updateStatusTask(action) {
       });
     }
   } catch (error) {
-    console.log(error);
-    console.log(error.response.data);
+    // console.log(error);
+    // console.log(error.response.data);
   }
 }
 
@@ -264,8 +264,8 @@ function* handelChangePostApi(action) {
       });
     }
   } catch (err) {
-    console.log(err.response?.data);
-    console.log(err);
+    // console.log(err.response?.data);
+    // console.log(err);
   }
 }
 
@@ -302,7 +302,7 @@ export function* theoDoiDeleteTask() {
 //Insert comment
 
 function* insertComment(action) {
-  console.log(action);
+  // console.log(action);
   try {
     const { data, status } = yield call(() => insertCommentService.insertComment(action.newComment));
     yield put({
@@ -310,8 +310,8 @@ function* insertComment(action) {
       taskId: data.content.taskId,
     });
   } catch (error) {
-    console.log(error);
-    console.log(error.response.data);
+    // console.log(error);
+    // console.log(error.response.data);
   }
 }
 

@@ -54,8 +54,8 @@ function* getAllUserSignUp(action) {
       arrUsers: data.content,
     });
   } catch (error) {
-    console.log(error);
-    console.log(error.response.data);
+    // console.log(error);
+    // console.log(error.response.data);
   }
 }
 
@@ -94,8 +94,8 @@ function* getUserSearch(action) {
       });
     }
   } catch (error) {
-    console.log(error);
-    console.log(error.data.content);
+    // console.log(error);
+    // console.log(error.data.content);
   }
 }
 
@@ -120,8 +120,8 @@ function* updateUserSignUp(action) {
       // getAllUserSignUp()
     }
   } catch (error) {
-    console.log(error);
-    console.log(error.response.data);
+    // console.log(error);
+    // console.log(error.response.data);
   }
 }
 
