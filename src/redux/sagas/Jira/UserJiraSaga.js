@@ -9,38 +9,38 @@ import { notifiFunction } from '../../../util/Notification/NotificationJira';
 
 //Quản lý các action saga
 function* signinSaga(action) {
-  yield put({
-    type: DISPLAY_LOADING,
-  });
-  yield delay(500);
+    yield put({
+        type: DISPLAY_LOADING,
+    });
+    yield delay(500);
 
-  //Gọi api
-  try {
-    const { data, status } = yield call(() => signInService.signInUser(action.userLogin));
+    //Gọi api
+    try {
+        const {data, status} = yield call(() => signInService.signInUser(action.userLogin));
 
-    //Lưu vào localstorage khi đăng nhập thành công
-    localStorage.setItem(TOKEN, data.content.accessToken);
-    localStorage.setItem(USER_LOGIN, JSON.stringify(data.content));
+        //Lưu vào localstorage khi đăng nhập thành công
+        localStorage.setItem(TOKEN, data.content.accessToken);
+        localStorage.setItem(USER_LOGIN, JSON.stringify(data.content));
 
-    if (status === STATUS_CODE.SUCCESS) {
-      yield put({
-        type: USLOGIN,
-        userLogin: data.content,
-      });
+        if (status === STATUS_CODE.SUCCESS) {
+            yield put({
+                type: USLOGIN,
+                userLogin: data.content,
+            });
+        }
+        notifiFunction('success', 'Đăng nhập thành công.')
+        history.push('/usermanagement');
+    } catch ( error ) {
+        notifiFunction('error', error.response.data?.message);
     }
-    notifiFunction('success', 'Đăng nhập thành công.')
-    history.push('/usermanagement');
-  } catch (error) {
-    notifiFunction('error', error.response.data.message);
-  }
 
-  yield put({
-    type: HIDE_LOADING,
-  });
+    yield put({
+        type: HIDE_LOADING,
+    });
 }
 
 export function* theoDoiSignin() {
-  yield takeLatest(USER_SIGNIN_API, signinSaga);
+    yield takeLatest(USER_SIGNIN_API, signinSaga);
 }
 
 // usermanagement
