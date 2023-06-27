@@ -24,7 +24,6 @@ function* signUpUser(action) {
             history.push('/login');
         }
     } catch ( error ) {
-        console.log(error.response.data)
         notifiFunction('error', error.response.data.message);
     }
     yield put({
